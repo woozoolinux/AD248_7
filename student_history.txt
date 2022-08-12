@@ -1,0 +1,301 @@
+    1  cat /etc/redhat-release 
+    2  ls
+    3  exit
+    4  echo $SHELL
+    5  echo test
+    6  cd
+    7  su -
+    8  ssh servera
+    9  su - root
+   10  cd ~/.ssh/
+   11  ls
+   12  exit
+   13  su -
+   14  exit
+   15  ls
+   16  touch 123
+   17  ls
+   18  rm 123
+   19  touch 123
+   20  ls
+   21  rm -i 123
+   22  alias
+   23  exit
+   24  cd /tmp/testgroup/
+   25  ls
+   26  exit
+   27  cd /tmp/testgroup/
+   28  ls
+   29  exit
+   30  su - oracle
+   31  passwd oracle
+   32  exit
+   33  su - oracle
+   34  exit
+   35  su - oracle
+   36  exit
+   37  cd /tmp/
+   38  ls
+   39  touch test
+   40  ll
+   41  rm -rf testgroup
+   42  ll
+   43  cd ..
+   44  ls
+   45  mkdir /tmp/test
+   46  cd /tmp/
+   47  ls
+   48  ls -ld test
+   49  chmod g+s test
+   50  ls -ld test
+   51  usermod -aG student oracle
+   52  exit
+   53  cat /etc/shadow
+   54  exit
+   55  cat /etc/shadow
+   56  cd /tmp/test
+   57  ls -ld /tmp/test
+   58  su - oracle
+   59  exit
+   60  id
+   61  su - 
+   62  su 
+   63  su -
+   64  sudo -i
+   65  id
+   66  cat /etc/shadow
+   67  sudo ll /etc/shadow
+   68  su - 
+   69  cd /tmp
+   70  mkdir student
+   71  cd student/
+   72  ll
+   73  touch file
+   74  ll
+   75  mkdir dir
+   76  ll
+   77  umask
+   78  exit
+   79  cd .ssh/
+   80  ls
+   81  ssh-agent 
+   82  eval $(ssh-agent)
+   83  env | grep SSH_AUTH
+   84  lab ssh-configure start
+   85  systemctl status cookpit.socket
+   86  systemctl status cockpit.socket
+   87  su -
+   88  id
+   89  groups
+   90  id
+   91  su -
+   92  sudo su -
+   93  su -
+   94  nmcli connection show
+   95  pifconfig 
+   96  ssh servera
+   97  nmcli connection show
+   98  pifconfig 
+   99  nmcli connection modify Wired\ connection\ 1 ipv4.addresses 172.25.250.30/24
+  100  nmcli connection show
+  101  pifconfig 
+  102  nmcli connection down Wired\ connection\ 1 
+  103  nmcli connection up Wired\ connection\ 1 
+  104  pifconfig 
+  105  ping 172.25.250.10
+  106  nmcli connection modify Wired\ connection\ 1 ipv4.addresses 172.25.250.9/24
+  107  nmcli connection down Wired\ connection\ 1 
+  108  nmcli connection up Wired\ connection\ 1 
+  109  nmcli connection show Wired\ connection\ 1 | grep dns
+  110  cd /etc/sysconfig/network-scripts/
+  111  ls
+  112  vim ifcfg-Wired_connection_1 
+  113  hostname -f
+  114  cat /etc/resolv.conf 
+  115  man resolv.conf
+  116  ls
+  117  sudo su -
+  118  ps axZ
+  119  ll -lZ
+  120  ls -lZ
+  121  pwd
+  122  semanage port -l
+  123  sudo -i
+  124  exit
+  125  ssh servera
+  126  kill -l
+  127  systemctl status sshd
+  128  sleep 3000
+  129  sleep 3000 &
+  130  jobs
+  131  kill %3
+  132  jobs
+  133  ps -ef | grep sleep
+  134  kill 39691
+  135  jobs
+  136  ps -ef | grep sleep
+  137  ps -ef | grep sleep | wc -l
+  138  ps -ef | grep sleep | grep -v grep
+  139  vim test.txt
+  140  cat /etc/passwd
+  141  fg
+  142  w
+  143  cat /proc/meminfo 
+  144  top
+  145  man top
+  146  w
+  147  sudo -i
+  148  ssh workstation
+  149  pifconfig 
+  150  ssh 172.25.250.100
+  151  ip addr show
+  152  ip addr show eth0 
+  153  ifocnfig
+  154  ifconfig
+  155  pifconfig 
+  156  ip addr add 172.25.250.30/24 dev eth0
+  157  sudo ip addr add 172.25.250.30/24 dev eth0
+  158  pifconfig 
+  159  ifconfig 
+  160  ip addr show
+  161  pifconfig 
+  162  route -n
+  163  traceroute access.redhat.com
+  164  ss -tan
+  165  ps -ef | grep ssh
+  166  ss -tulpn ssh
+  167  ss -tulpn | grep 1336
+  168  sudo ss -tulpn | grep 1336
+  169  pifconfig 
+  170  nmcli device disconnect eth0
+  171  pifconfig 
+  172  nmcli connection show
+  173  nmcli connection up Wired\ connection\ 1 
+  174  nmcli connection show
+  175  pifconfig 
+  176  nmcli connection down eth0
+  177  nmcli connection down Wired\ connection\ 1 
+  178  nmcli connection show
+  179  pifconfig 
+  180  nmcli connection show
+  181  cd /etc/sysconfig/network-scripts/
+  182  ls
+  183  nmcli connection show  eth0
+  184  nmcli connection show Wired\ connection\ 1 
+  185  nmcli connection show Wired\ connection\ 1 | grep auto
+  186  nmtuil
+  187  nmtui
+  188  ls
+  189  vim ifcfg-Wired_connection_1 
+  190  host servera
+  191  nslookup servera
+  192  pifconfig 
+  193  nmcli connection up Wired\ connection\ 1 
+  194  host servera
+  195  cat /etc/hosts
+  196  getent 
+  197  getent servera
+  198  man getent
+  199  vim /etc/nsswitch.conf
+  200  nmtui
+  201  cat ifcfg-Wired_connection_1 
+  202  nmtui
+  203  cat ifcfg-Wired_connection_1 
+  204  nmcli connection show --active
+  205  nmcli connection show
+  206  pifconfig 
+  207  celar
+  208  clear
+  209  pwd
+  210  clear
+  211  sudo -i
+  212  logger test
+  213  vim /var/log/messages 
+  214  sudo cat /var/log/messages | tail -10
+  215  journalctl --header
+  216  journalctl --header | grep File
+  217  journalctl --header | grep -c 'File Path:'
+  218  sudo journalctl --header | grep -c 'File Path:'
+  219  sudo -i
+  220  pifconfig 
+  221  nmcli connection modify Wired\ connection\ 1 ipv4.addresses 172.25.250.9/24
+  222  nmcli connection down Wired\ connection\ 1 
+  223  nmcli connection up Wired\ connection\ 1 
+  224  vim /etc/resolv.conf 
+  225  sudo -i
+  226  lab containers-services start
+  227  ssh servera
+  228  ping servera
+  229  ssh contsvc@servera
+  230  ssh servera
+  231  ping servera
+  232  ls
+  233  ssh servera
+  234  lab containers-services finish
+  235  podmps
+  236  ssh servera
+  237  lab containers-services start
+  238  ls
+  239  ssh servera
+  240  loger "test message"
+  241  logger "test user maessage"
+  242  tail /var/log/messages 
+  243  sudo tail /var/log/messages 
+  244  exit
+  245  ls
+  246  crontab -l
+  247  crontab -e
+  248  crontab -l
+  249  ll
+  250  ll /var/spool/cron/
+  251  ll /var/spool/cron/student
+  252  sudo ll /var/spool/cron/
+  253  sudo ls /var/spool/cron/
+  254  sudo cat /var/spool/cron/student
+  255  crontab -l
+  256  crontab -e
+  257  exit
+  258  crontab -l
+  259  crontab -e
+  260  crontabl -l
+  261  crontab -l
+  262  exit
+  263  date
+  264  watch -n 1 date
+  265  systemctl  status systemd-tmpfiles-clean
+  266  systemctl  status systemd-tmpfiles-clean.timer 
+  267  systemctl cat systemd-tmpfiles-clean.timer 
+  268  systemctl cat systemd-tmpfiles-clean.service 
+  269  which yum
+  270  ll /usr/bin/yum
+  271  dnf history 
+  272  vim /etc/crontab 
+  273  sudo -i
+  274  mount -t nfs serverb:/shares/public /mnt/data
+  275  su -
+  276  su - 
+  277  df
+  278  mount | grep data
+  279  :q
+  280  df
+  281  umount /mnt/data
+  282  umount /mnt/data 
+  283  su -
+  284  cd /tmp/
+  285  ls
+  286  ls -ltr
+  287  ssh servera
+  288  ssh serverb
+  289  cd
+  290  lab containers-basic start
+  291  ssh servera
+  292  ss -tulpn | grep cock
+  293  systemctl start cockpit
+  294  sudo -i
+  295  lvs
+  296  sudo -i
+  297  lab netstorage-nfs start
+  298  ssh serverb
+  299  history
+  300  git
+  301  history >> /tmp/student_history.txt

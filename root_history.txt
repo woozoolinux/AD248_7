@@ -1,0 +1,939 @@
+    1  find -h
+    2  find --help
+    3  find /usr/bin -perm 4000 
+    4  find /usr/bin -perm 2000 
+    5  find /usr -perm 2000 
+    6  find /usr -perm 4000 
+    7  cd /usr/bin/
+    8  ls
+    9  ll | grep s
+   10  passwd student
+   11  pifconfig 
+   12  ip a
+   13  ifdown eth0
+   14  nmcli connection down eth-
+   15  nmcli connection down eth0
+   16  pifconfig 
+   17  nmcli connection show
+   18  nmcli connection down Wired\ connection\ 1 
+   19  pifconfig 
+   20  ip a
+   21  ifconfig
+   22  ip a
+   23  ip -s link show
+   24  ssh servera
+   25  nmcli connection up Wired\ connection\ 1 
+   26  ssh servera
+   27  exit
+   28  ssh workstation
+   29  journalctl 
+   30  journalctl -o verbose
+   31  date
+   32  journalctl --since "2022-08-08 10:00" 
+   33  journalctl --since "2022-08-08 10:00" -o verbose
+   34  journalctl -o verbose
+   35  ls
+   36  cd /etc/sysconfig/network-scripts/
+   37  ls
+   38  vim ifcfg-Wired_connection_1 
+   39  nmcli connection down Wired\ connection\ 1 
+   40  nmcli connection up Wired\ connection\ 1 
+   41  pifconfig 
+   42  nmcli connection reload 
+   43  pifconfig 
+   44  nmcli connection down Wired\ connection\ 1 
+   45  nmcli connection up Wired\ connection\ 1 
+   46  pifconfig 
+   47  vim ifcfg-Wired_connection_1
+   48  nmcli connection reload 
+   49  nmcli connection down Wired\ connection\ 1 
+   50  nmcli connection up Wired\ connection\ 1 
+   51  man resolv.conf
+   52  cat /etc/hosts
+   53  getent bastion
+   54  getent hosts bastion
+   55  vim /etc/hosts
+   56  getent hosts serverd
+   57  cat /etc/resolv.conf 
+   58  man resolv.conf
+   59  nslookup lab.example.com
+   60  cat /etc/resolv.conf 
+   61  nslookup lab.example.com
+   62  cat /etc/hosts
+   63  nslookup servera.lab.example.com
+   64  cat /etc/resolv.conf 
+   65  vim /etc/resolv.conf 
+   66  nslookup servera.lab.example.com
+   67  cat /etc/resolv.conf 
+   68  vim /etc/resolv.conf 
+   69  nslookup servera.lab.example.com
+   70  host serera
+   71  vim /etc/resolv.conf 
+   72  nmcli connection show
+   73  nmcli connection down Wired\ connection\ 1 
+   74  nmcli connection up Wired\ connection\ 1 
+   75  cat /etc/resolv.conf 
+   76  host serera
+   77  host workstation
+   78  host servera
+   79  vim /etc/resolv.conf 
+   80  host servera
+   81  host workstation
+   82  vim /etc/resolv.conf 
+   83  host workstation
+   84  host --help
+   85  man host
+   86  nslookup workstation
+   87  vim /etc/resolv.conf 
+   88  nslookup workstation
+   89  vim /etc/resolv.conf 
+   90  vim /etc/rsyslog.conf 
+   91  man rsyslog.conf
+   92  man syslog
+   93  cd /etc/rsyslog.d/
+   94  ls
+   95  cat 21-cloudinit.conf 
+   96  man syslog
+   97  man rsyslog.conf
+   98  man logger
+   99  logger -p mail.info test
+  100  vim /var/log/maillog 
+  101  logger -p authpriv.info test123
+  102  vim /var/log/secure 
+  103  logger -p user.emerg test
+  104  vim /var/log/messages 
+  105  logger -p user.emerg test123
+  106  vim /var/log/messages 
+  107  logger -p authpriv.emerg test123
+  108  vim /var/log/secure 
+  109  vim /etc/rsyslog.conf 
+  110  man rsyslog.conf
+  111  logger -p kern.emerg test
+  112  logger -p kern.emerg ERrro
+  113  vim /var/log/messages 
+  114  logger -p kern.alert ERrro
+  115  vim /var/log/messages 
+  116  dmesg
+  117  logger -p user.emerg ERrro
+  118  vim /var/log/messages 
+  119  logger --help
+  120  man logger
+  121  logger -p local0.emerg test123
+  122  vim /etc/logrotate.d/syslog 
+  123  vim /etc/logrotate.conf 
+  124  tail -f /var/log/secure 
+  125  semanage port -l
+  126  semanage port -l | grep http
+  127  semanage boolean -a | grep http
+  128  semanage boolean -l
+  129  semanage boolean -l | grep http
+  130  semanage boolean -l | head -5
+  131  ls -lZ
+  132  ssh servera
+  133  semanage  port -l | grep http_port
+  134  ssh servera
+  135  systemctl status cockpit
+  136  systemctl start cockpit
+  137  yum install httpd
+  138  ls
+  139  cd ..
+  140  ls
+  141  vim /etc/httpd/conf/httpd.conf 
+  142  systemctl start httpd
+  143  ps -ef | grep httpd
+  144  semanage port -a -t http_port_t -p tcp 82
+  145  systemctl start httpd
+  146  ps -ef | grep httpd
+  147  vim /etc/httpd/conf/httpd.conf 
+  148  systemctl start httpd
+  149  systemctl stop httpd
+  150  semanage port -d -t http_port_t -p tcp 82
+  151  systemctl status httpd
+  152  systemctl start httpd
+  153  clear
+  154  last
+  155  w
+  156  date
+  157  exit
+  158  w
+  159  date
+  160  last
+  161  last -x
+  162  last
+  163  vim /test.txt
+  164  fg
+  165  bg
+  166  fg
+  167  ls
+  168  sleep 3000
+  169  sleep &
+  170  jobs
+  171  sleep 300 &
+  172  jobs
+  173  kill %1
+  174  sleep 300 &
+  175  ps -ef | grep sleep
+  176  kill 39248
+  177  clear
+  178  control job
+  179  clear
+  180  jobs 200 &
+  181  sleep 200 &
+  182  jobs
+  183  pgrep sleep
+  184  pgrep -u sleep
+  185  pgrep -l sleep
+  186  pkill sleep
+  187  pgrep -l sleep
+  188  pkill -9 sleep
+  189  pgrep -l sleep
+  190  ps -ef | grep sleep
+  191  pgrep sleep
+  192  w
+  193  w -h
+  194  w -u bob
+  195  w -u student
+  196  w --help
+  197  w student
+  198  clear
+  199  exit
+  200  w
+  201  top
+  202  ps aux
+  203  ps aux | grep Z
+  204  ps aux | more
+  205  top
+  206  clear
+  207  lscpu
+  208  cat /proc/cpuinfo 
+  209  clear
+  210  w
+  211  uptime
+  212  top
+  213  w
+  214  uptime
+  215  top
+  216  w
+  217  cd /usr/lib/tuned/
+  218  ls
+  219  systemctl status tuned
+  220  ls
+  221  ls 
+  222  cd virtual-guest/
+  223  ls
+  224  cat tuned.conf 
+  225  iostat -x 2
+  226  vmstat -x 2
+  227  iostat -e 2
+  228  opstat
+  229  iostat
+  230  vmstat
+  231  vmstat 2
+  232  iostat
+  233  yum procides */iostat
+  234  yum provides */iosat
+  235  yum repolist
+  236  yum provides */iostat
+  237  yum provides *bin/iostat
+  238  yum install sysstat
+  239  iostat -x 2
+  240  sar -r 2
+  241  cd /var/log/sa
+  242  ls
+  243  which sa
+  244  rpm -qf /sbin/sa
+  245  rpm -qf /sbin/sar
+  246  which sar
+  247  rpm -qf /bin/sar
+  248  sar -2
+  249  sar 2
+  250  free
+  251  cat /proc/meminfo 
+  252  clear
+  253  systemctl  status tuned
+  254  cd /usr/lib/tuned/
+  255  ls
+  256  cd balanced/
+  257  ls
+  258  vim tuned.conf 
+  259  cd ..
+  260  cd latency-performance/
+  261  ls
+  262  vim tuned.conf 
+  263  tuned-adm active
+  264  cd ..
+  265  cd virtual-
+  266  cd virtual-guest/
+  267  ls
+  268  vim tuned.conf 
+  269  sysctl -a | grep swapiness
+  270  sysctl -a | grep swap
+  271  tuned-adm profile latency-performance 
+  272  sysctl -a | grep swap
+  273  tuned-adm profile virtual-guest 
+  274  sysctl -a | grep swap
+  275  clear
+  276  pwd
+  277  cd
+  278  ls
+  279  cleawr
+  280  clear
+  281  vim /etc/tuned/tuned-main.conf 
+  282  clear
+  283  vim /etc/tuned/tuned-main.conf 
+  284  systemctl status tuned
+  285  cd /usr/lib/tuned/
+  286  ls
+  287  cd virtual-guest/
+  288  ls
+  289  cd ..
+  290  cd network-latency/
+  291  ls
+  292  cd ..
+  293  cd virtual-guest/
+  294  ls
+  295  vim tuned.conf 
+  296  tuned-adm active
+  297  tuned-adm list
+  298  tuned-adm profile latency-performance
+  299  tuned-adm active 
+  300  cd ..
+  301  cd latency-performance/
+  302  ls
+  303  vim tuned.conf 
+  304  sysctl -a 
+  305  sysctl -a  | grep swappiness
+  306  cat tuned.conf  | grep swappiness
+  307  tuned-adm profile virtual-guest 
+  308  cd ..
+  309  cd virtual-guest/
+  310  cat tuned.conf | grep swappiness
+  311  tuned-adm active
+  312  sysctl -a | grep swappiness
+  313  tuned-adm recommend 
+  314  칟ㅁㄱ
+  315  clear
+  316  ping 8.8.8.8
+  317  subscription-manager list
+  318  ssh servera
+  319  systemctl list-unit
+  320  systemctl list-units
+  321  systemctl list-units --type=target
+  322  systemctl list-units --type=path
+  323  systemctl list-unit-files --type=path
+  324  systemctl list-unit-files --type=socket
+  325  systemctl list
+  326  systemctl list-units | grep -i path
+  327  systemctl list-units | more
+  328  systemctl list-units  | grep sshd
+  329  systemctl list-units  | head -2
+  330  systemctl list-units  | grep sshd
+  331  systemctl status chronyd
+  332  systemctl list-units  | grep chronyd
+  333  systemctl stop chronyd
+  334  systemctl list-units  | grep chronyd
+  335  systemctl list-units  --all | grep chronyd
+  336  systemctl status chronyd
+  337  systemctl list-unit-files | grep chronyd
+  338  systemctl list-unit-files --all | grep chronyd
+  339  iostat 2
+  340  vmstat 2
+  341  free -h
+  342  sar -r
+  343  cd /var/log/sa
+  344  ls
+  345  sar -f sa09 -S
+  346  ssh serverb
+  347  iostat 2
+  348  sar -r 2
+  349  vmstat 2
+  350  free -h
+  351  which vmstat
+  352  rpm -qf /bin/vmstat 
+  353  pstree -L 1
+  354  pstree | more
+  355  ps -ef | grep systemd
+  356  pgrep -p 1
+  357  ps
+  358  ps -e
+  359  ps -ef
+  360  systemctl status sshd
+  361  systemctl status chronyd.service 
+  362  systemctl list-unit --all | grep path
+  363  systemctl list-units --all | grep path
+  364  systemctl  list-units --type service
+  365  systemctl status systemd-sysctl.service 
+  366  systemctl --failed --type=service
+  367  systemctl 
+  368  clear
+  369  ps -ef 
+  370  ps -ef  | more
+  371  pstree | more
+  372  clear
+  373  cd
+  374  clear
+  375  ps -ef | more
+  376  pstree | more
+  377  systemctl status sshd
+  378  sleep 30
+  379  sleep 30 &
+  380  systemctl disable sshd.service
+  381  systemctl status sshd
+  382  systemctl is-active sshd
+  383  systemctl is-enabled sshd
+  384  systemctl enable sshd.service
+  385  systemctl is-enabled sshd
+  386  systemctl cat sshd
+  387  ps -ef | grep sshd
+  388  systemctl reload sshd
+  389  ps -ef | grep sshd
+  390  systemctl restart sshd
+  391  ps -ef | grep sshd
+  392  clear
+  393  systemctl reload-or-restart sshd
+  394  ps -ef | grep sshd
+  395  systemctl reload-or-restart sshd
+  396  ps -ef | grep sshd
+  397  clear
+  398  systemctl status cups
+  399  man cups
+  400  systemctl list-dependencies cups
+  401  systemctl list-dependencies sshd
+  402  systemctl status iscsi-onboot.service 
+  403  systemctl status kmod-static-nodes.service 
+  404  systemctl status plymouth-start.service 
+  405  systemctl status sshd-keygen.target 
+  406  systemctl list-dependencies cups
+  407  systemctl list-dependencies chronyd
+  408  systemctl list-dependencies firewalld
+  409  systemctl  cat sshd
+  410  clear
+  411  systemctl list-dependencies sshd
+  412  systemctl cat sshd
+  413  systemctl status sshd
+  414  cd /boot/
+  415  ls
+  416  vim grub2/grub.cfg 
+  417  cd ..
+  418  cd efi
+  419  ls
+  420  cd /boot/
+  421  cd efi/
+  422  ls
+  423  cd EFI/
+  424  ls
+  425  cd redhat/
+  426  ls
+  427  vim grub.cfg 
+  428  pwd
+  429  cd ..
+  430  cd /boot/
+  431  ls
+  432  cd grub2/2
+  433  cd grub2/
+  434  ls
+  435  vim grub
+  436  vim grubc
+  437  vim grub.cfg 
+  438  cd ..
+  439  cd efi/EFI/BOOT/
+  440  ls
+  441  cd ..
+  442  cd redhat/
+  443  ls
+  444  vim grub.cfg 
+  445  ls
+  446  vim grubenv 
+  447  vim grubx64.efi 
+  448  cd /etc/default/
+  449  ls
+  450  vim grub 
+  451  ls
+  452  cd -
+  453  ls
+  454  cd fonts/
+  455  ls
+  456  cd ..
+  457  cd .
+  458  cd /boot/
+  459  ls
+  460  cd efi/
+  461  ls
+  462  cd EFI/
+  463  ls
+  464  cd redhat/
+  465  ls
+  466  vim grubenv 
+  467  ls
+  468  vim BOOTX64.CSV 
+  469  vim shimx64.efi 
+  470  strings grubx64.efi 
+  471  ]
+  472  ls
+  473  cd
+  474  cd /boot/
+  475  ls
+  476  cd grub2/
+  477  ls
+  478  pwd
+  479  vim grub.cfg 
+  480  cd /boot/
+  481  ls
+  482  systemctl get-default 
+  483  ssh servera
+  484  lab boot-selecting start
+  485  reboot
+  486  mount
+  487  exit
+  488  ls
+  489  cat /etc/passwd
+  490  cat /etc/shadow
+  491  ls
+  492  id
+  493  vim /etc/fstab 
+  494  systemctl daemon-reload 
+  495  reboot
+  496  vim /etc/fstab 
+  497  mount -a
+  498  vim /etc/fstab 
+  499  systemctl daemon-reload 
+  500  reboot
+  501  systemctl status NetworkManager
+  502  nmcli connection status
+  503  nmcli connection show
+  504  nmcli device status
+  505  ls /sys/class/net/
+  506  cat /sys/class/net/eth0/address 
+  507  nmcli connection show
+  508  nmtui
+  509  nmcli connection show
+  510  nmcli connection down Wired\ connection\ 1 
+  511  nmcli connection show
+  512  pifconfig 
+  513  nmcli connection up Wired\ connection\ 1 
+  514  pifconfig 
+  515  nmcli device disconnect eth0 
+  516  pifconfig 
+  517  nmcli connection show Wired\ connection\ 1 
+  518  pifconfig 
+  519  nmcli connection up Wired\ connection\ 1 
+  520  pifconfig 
+  521  nmcli connection modify Wired\ connection\ 1 ipv4.addresses 172.25.250.90/24
+  522  pifconfig 
+  523  nmcli connection down Wired\ connection\ 1 
+  524  nmcli connection up Wired\ connection\ 1 
+  525  pifconfig 
+  526  nmcli connection modify Wired\ connection\ 1 ipv4.addresses 172.25.259.9/24 
+  527  ls
+  528  cd /etc/sysconfig/network-scripts/
+  529  ls
+  530  vim ifcfg-Wired_connection_1 
+  531  pwd
+  532  ls
+  533  vim ifcfg-Wired_connection_1 
+  534  cat /etc/resolv.conf 
+  535  vim ifcfg-Wired_connection_1 
+  536  nslookup naver.com
+  537  nslookup servera
+  538  cat /etc/hosts
+  539  cat /etc/resolv.conf 
+  540  vim ifcfg-Wired_connection_1 
+  541  nmcli connection modify Wired\ connection\ 1 connection.autoconnect no
+  542  vim ifcfg-Wired_connection_1 
+  543  nmcli connection modify Wired\ connection\ 1 connection.autoconnect yes
+  544  cat ifcfg-Wired_connection_1 
+  545  vim ifcfg-Wired_connection_1 
+  546  pifconfig 
+  547  nmcli connection up Wired\ connection\ 1 
+  548  pifconfig 
+  549  nmcli connection down Wired\ connection\ 1 
+  550  pifconfig 
+  551  nmcli connection up Wired\ connection\ 1 
+  552  vim ifcfg-Wired_connection_1 
+  553  nmcli connection down Wired\ connection\ 1 
+  554  pifconfig 
+  555  nmcli connection up Wired\ connection\ 1 
+  556  pifconfig 
+  557  nmcli connection reload 
+  558  nmcli connection down Wired\ connection\ 1 
+  559  nmcli connection up Wired\ connection\ 1 
+  560  pifconfig 
+  561  host workstation
+  562  host google.com
+  563  cd
+  564  hostname
+  565  hostnamectl 
+  566  cat /etc/hostname 
+  567  ping google.com
+  568  vim /etc/nsswitch.conf
+  569  ping google.com
+  570  pifconfig 
+  571  ping 172.25.250.10
+  572  vim /etc/hosts 
+  573  ping google.com
+  574  vim /etc/hosts 
+  575  cat /etc/hosts
+  576  cd /etc/sysconfig/network-scripts/
+  577  ls
+  578  vim ifcfg-Wired_connection_1 
+  579  cat /etc/resolv.conf 
+  580  nmcli connection modify Wired\ connection\ 1 +ipv4.dns 8.8.8.8
+  581  cat /etc/resolv.conf 
+  582  cat ifcfg-Wired_connection_1 
+  583  nmcli connection down Wired\ connection\ 1 
+  584  nmcli connection up Wired\ connection\ 1 
+  585  cat /etc/resolv.conf 
+  586  nslookup google.com
+  587  nmcli connection modify Wired\ connection\ 1 +ipv4.addresses 10.0.1.1/24
+  588  cat ifcfg-Wired_connection_1 
+  589  pifconfig 
+  590  nmcli connection down Wired\ connection\ 1 
+  591  nmcli connection up Wired\ connection\ 1 
+  592  pifconfig 
+  593  clear
+  594  ifconfig
+  595  clear
+  596  systemctl status systemd-journal
+  597  systemctl status systemd-journald
+  598  journalctl 
+  599  cd /etc/logrotate.d/
+  600  ls
+  601  vim syslog 
+  602  vim /etc/logrotate.conf 
+  603  ls
+  604  vim chrony 
+  605  vimht
+  606  vim httpd 
+  607  ls
+  608  vim up2date 
+  609  ls
+  610  vim wpa_supplicant 
+  611  cim sssd 
+  612  vim sssd 
+  613  cd /var/log/
+  614  ls
+  615  cd sssd/
+  616  ls
+  617  ll
+  618  cd
+  619  clear
+  620  cd /var/lib/logrotate/
+  621  ls
+  622  ll
+  623  cat logrotate.status 
+  624  cd
+  625  systemctl status systemd-journald
+  626  man systemd-journald
+  627  cd /var/log/
+  628  ls
+  629  vim /etc/rsyslog.conf 
+  630  man rsyslog.conf 
+  631  pwd
+  632  ls
+  633  vim /etc/rsyslog.conf 
+  634  vim /etc/logrotate.conf 
+  635  cd /etc/logrotate.d/
+  636  ls
+  637  vim syslog 
+  638  vim /etc/logrotate.conf 
+  639  cat /var/lib/logrotate/logrotate.status 
+  640  tail -f /var/log/secure 
+  641  logger -p local7.notice "test LOG"
+  642  vim /var/log/messages 
+  643  exit
+  644  journalctl --header
+  645  journalctl --header | grep -c 'File Path:'
+  646  journalctl --header | grep 'File Path:'
+  647  cd /run/log/
+  648  ls
+  649  cd journal/
+  650  ls
+  651  ll
+  652  ll -h
+  653  du -sh *
+  654  pwd
+  655  journalctl -f
+  656  journalctl -k
+  657  clear
+  658  pwd
+  659  clear
+  660  pwd
+  661  cd ..
+  662  ls
+  663  cd journal/
+  664  [wd
+  665  pwd
+  666  ls
+  667  du -sh *
+  668  journalctl -f
+  669  journalctl -p err
+  670  journalctl | grep -E 'Runtime|System journal'
+  671  ll
+  672  df -h
+  673  df -h /run
+  674  journalctl | grep -E 'Runtime|System journal'
+  675  clear
+  676  journalctl | grep -E 'Runtime|System journal'
+  677  vim /etc/systemd/journald.conf 
+  678  df -h /run
+  679  timedatectl list-timezones 
+  680  timedatectl list-timezones  | grep -i korea
+  681  timedatectl list-timezones  | grep -i kr
+  682  timedatectl list-timezones  | grep -i seoul
+  683  tzselect 
+  684  timedatectl 
+  685  tzselect 
+  686  timedatectl 
+  687  man tzselect
+  688  timedatectl --list
+  689  timedatectl -a
+  690  timedatectl list-timezones 
+  691  timedatectl list-timezones  | grep asia
+  692  timedatectl list-timezones  | grep -i asiz
+  693  timedatectl list-timezones  | grep -i asia
+  694  timedatectl list-timezones  | grep -i asia | grep seoul
+  695  systemctl status chronyd
+  696  chronyc sources -v
+  697  vim /etc/chrony.conf 
+  698  systemctl restsart chronyd
+  699  systemctl restart chornyd
+  700  systemctl restart chronyd
+  701  chronyc sources -v
+  702  clear
+  703  timedatectl 
+  704  date
+  705  clear
+  706  timedatectl list-timezones | grep -i seoul
+  707  timedatectl list-timezones | grep -i asia
+  708  tzselect 
+  709  timedatectl 
+  710  timedatectl set-timezone Asia/Seoul
+  711  timedatectl 
+  712  systemctl status chronyd
+  713  timedatectl 
+  714  timedatectl set-ntp false
+  715  timedatectl 
+  716  systemctl status chronyd
+  717  systemctl start chronyd
+  718  timedatectl 
+  719  chronyc sources -v
+  720  vim /etc/chrony.conf 
+  721  fg
+  722  vim /etc/chrony.conf 
+  723  watch -n 1 chronyc sources
+  724  find / -user test
+  725  clear
+  726  ls
+  727  lvs
+  728  pvs
+  729  lsblk
+  730  ssh serverb
+  731  ssh servera
+  732  ping servera
+  733  ssh serverb
+  734  ssh servera
+  735  cd /etc/cron.daily/
+  736  ls
+  737  cat logrotate 
+  738  logger "test message"
+  739  vim /var/log/messages 
+  740  su - student
+  741  vim /etc/ron
+  742  crontab -l
+  743  vim /etc/cron
+  744  vim /etc/crontab 
+  745  tail -f /var/log/cron 
+  746  ls
+  747  cat /var/log/messages 
+  748  vim /etc/crontab 
+  749  ls
+  750  cat /etc/anacrontab 
+  751  cat /etc/cron.d/0hourly 
+  752  cd /etc/cron.hourly/
+  753  ls
+  754  cat 0anacron 
+  755  cat /etc/cron.d/0hourly 
+  756  cat /etc/cron.hourly/0anacron
+  757  cat /etc/anacrontab 
+  758  cat /var/spool/anacron/cron.daily 
+  759  cat /var/spool/anacron/cron.weekly 
+  760  cd /etc/cron.d
+  761  ls
+  762  cat raid-check 
+  763  ls
+  764  cat 0hourly 
+  765  cat /etc/anacrontab 
+  766  ls
+  767  cat 0hourly 
+  768  cd /var/spool/cron/
+  769  ls
+  770  su - student
+  771  ll
+  772  cat student 
+  773  rm student 
+  774  cd /etc
+  775  ls
+  776  cat cron.hourly/0anacron 
+  777  ls
+  778  cat /etc/cron.d/0hourly 
+  779  cat /etc/cron.hourly/
+  780  cat /etc/cron.hourly/0anacron 
+  781  vim /etc/cron.hourly/0anacron 
+  782  cd /var/spool/anacron/
+  783  ls
+  784  vim cron.daily 
+  785  vim /etc/cron.hourly/0anacron 
+  786  cd /etc/cron.daily/
+  787  ls
+  788  cat logrotate 
+  789  cd
+  790  ls
+  791  cat /etc/cron.d/0hourly 
+  792  cat /etc/cron.hourly/
+  793  cat /etc/cron.hourly/0anacron 
+  794  anacron --help
+  795  man anacron
+  796  clear
+  797  vim /var/log/messages 
+  798  systemctl restart syslog
+  799  systemctl restart rsyslog
+  800  vim /var/log/messages 
+  801  clear
+  802  vim /etc/crontab 
+  803  tail -f /var/log/messages 
+  804  vim /etc/crontab 
+  805  date
+  806  vim /etc/crontab 
+  807  crontab -l
+  808  cd /var/spool/cron/
+  809  ll
+  810  su - student
+  811  pwd
+  812  ll
+  813  ls
+  814  cat student 
+  815  ll /etc/crontab 
+  816  date
+  817  cat /tmp/student.txt 
+  818  date
+  819  cat /tmp/student.txt 
+  820  cd /etc/cron.d
+  821  ls
+  822  cat /etc/cron.d/0hourly 
+  823  cd /etc/cron.hourly/
+  824  ls
+  825  cat 0anacron 
+  826  cat /etc/anacrontab 
+  827  cd /etc/cron.daily/
+  828  ls
+  829  cat logrotate 
+  830  rpm -qa | grep sysstat
+  831  cd /var/log/sa
+  832  ls
+  833  vim /etc/crontab 
+  834  man crontab
+  835  vim /etc/crontab 
+  836  ls
+  837  exit
+  838  cd /etc/tmpfiles.d/
+  839  ls
+  840  cd /usr/lib/tmpfiles.d/
+  841  ls
+  842  vim tmp.conf 
+  843  man tmpfiles.d
+  844  clear
+  845  pwd
+  846  ls
+  847  cat tmp.conf 
+  848  pwd
+  849  ls
+  850  pwd
+  851  cp tmp.conf /etc/tmpfiles.d/
+  852  vim /etc/tmpfiles.d/tmp.conf 
+  853  mount -t nfs serverb:/shares/public /mnt/data
+  854  mkdir /mnt/data
+  855  mount -t nfs serverb:/shares/public /mnt/data
+  856  cd /mnt/data
+  857  ls
+  858  exit
+  859  umount /mnt/data da
+  860  umount /mnt/data 
+  861  df
+  862  systemctl list-units | more
+  863  ls
+  864  clear
+  865  ls
+  866  mount -t nfs serverb:/shares/public /mnt
+  867  df -h
+  868  cd /mnt
+  869  ls
+  870  mount | grep mnt
+  871  df
+  872  umount /mnt
+  873  cd
+  874  umount /mnt
+  875  ls
+  876  df
+  877  clear
+  878  systemctl status nftables
+  879  systemctl start nftables
+  880  systemctl status nftables
+  881  cd /tmp/
+  882  ls
+  883  cd test
+  884  ls
+  885  cd dir/
+  886  ls
+  887  cd /home/student/
+  888  ls
+  889  ssh servera
+  890  ssh serverb
+  891  exit
+  892  firewall-cmd --list-all
+  893  firewall-cmd --add-port=82/tcp --permanent
+  894  systemctl status httpd
+  895  systemctl start httpd
+  896  vim /etc/httpd/conf/httpd.conf 
+  897  systemctl start httpd
+  898  firewall-cmd --list-all
+  899  pifconfig 
+  900  firewall-cmd --add-port=80/tcp
+  901  firewall-cmd --reload
+  902  vim /var/www/html/
+  903  vim /var/www/html/index.html
+  904  clear
+  905  cd /usr/lib/firewalld/
+  906  ls
+  907  cd zones/
+  908  ls
+  909  cat public.xml 
+  910  firewall-cmd --list-services 
+  911  cd ..
+  912  cd services/
+  913  pwd
+  914  ls
+  915  systemctl status httpd
+  916  ss -tulpn | grep 14796
+  917  curl localhost:80
+  918  firewall-cmd --list-all
+  919  firewall-cmd --add-port=80/tcp
+  920  firewall-cmd --list-all
+  921  firewall-cmd --reload
+  922  firewall-cmd --list-all
+  923  firewall-cmd --add-port=80/tcp --permanent 
+  924  firewall-cmd --list-all
+  925  firewall-cmd --reload
+  926  firewall-cmd --list-all
+  927  systemctl status cockp
+  928  systemctl start cockpit
+  929  systemctl status cockpit
+  930  firewall-cmd --list-all
+  931  firewall-cmd --get-default-zone 
+  932  firewall-cmd --list-all
+  933  firewall-cmd --remove-port=80/tcp --permanent 
+  934  firewall-cmd --reload 
+  935  firewall-cmd --list-all
+  936  ssh servera
+  937  ssh student@servera
+  938  history
+  939  history >> /tmp/root_history.txt
