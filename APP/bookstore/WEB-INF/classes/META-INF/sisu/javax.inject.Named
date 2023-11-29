@@ -1,0 +1,5 @@
+com.redhat.training.view.MessageContact
+com.redhat.training.view.ShoppingCart
+com.redhat.training.view.OrderManage
+com.redhat.training.view.CatalogManage
+com.redhat.training.view.CatalogInquiry

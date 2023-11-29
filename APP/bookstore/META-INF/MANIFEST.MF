@@ -1,0 +1,7 @@
+Manifest-Version: 1.0
+Archiver-Version: Plexus Archiver
+Created-By: Apache Maven
+Built-By: rsriniva
+Build-Jdk: 1.8.0_74
+Dependencies: com.google.guava,org.slf4j
+

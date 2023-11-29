@@ -1,0 +1,325 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <artifactId>bookstore-war</artifactId>
+  <packaging>war</packaging>
+  <name>Bookstore Project</name>
+  <description>This is the Bookstore project</description>
+  <parent>
+  	<groupId>com.redhat.training</groupId>
+  	<artifactId>parent-pom</artifactId>
+  	<version>1.0</version>
+  	<relativePath>../pom.xml</relativePath>
+  </parent>
+
+  <properties>
+        <!-- JBoss dependency versions -->
+        <com.ocpsoft.prettyfaces.version>3.3.2</com.ocpsoft.prettyfaces.version>
+        <org.richfaces.bom.version>4.5.13.Final</org.richfaces.bom.version>
+        <drools.version>6.0.3-redhat-4</drools.version>
+
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+           <dependency>
+				<groupId>org.richfaces</groupId>
+				<artifactId>richfaces-cache-bom</artifactId>
+				<version>${org.richfaces.bom.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+<!--
+            <dependency>
+                <groupId>org.drools</groupId>
+                <artifactId>drools-bom</artifactId>
+                <version>${drools.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>org.jbpm</groupId>
+                <artifactId>jbpm-bom</artifactId>
+                <version>${drools.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+-->
+        </dependencies>
+    </dependencyManagement>
+
+
+    <dependencies>
+
+        <!-- First declare the APIs we depend on and need for compilation. All
+            of them are provided by JBoss EAP -->
+
+        <!-- Import the CDI API, we use provided scope as the API is included in
+            JBoss EAP -->
+        <dependency>
+            <groupId>javax.enterprise</groupId>
+            <artifactId>cdi-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the Common Annotations API (JSR-250), we use provided scope
+            as the API is included in JBoss EAP -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.annotation</groupId>
+            <artifactId>jboss-annotations-api_1.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the JAX-RS API, we use provided scope as the API is included
+            in JBoss EAP -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ws.rs</groupId>
+            <artifactId>jboss-jaxrs-api_2.0_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the JPA API, we use provided scope as the API is included in
+            JBoss EAP -->
+        <dependency>
+            <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.1-api</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Import the EJB API, we use provided scope as the API is included in
+            JBoss EAP -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Bean Validation Implementation -->
+        <!-- Provides portable constraints such as @Email -->
+        <!-- Hibernate Validator is shipped in JBoss EAP -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.slf4j</groupId>
+                    <artifactId>slf4j-api</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+            <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-search-orm</artifactId>
+                 <scope>provided</scope>
+            </dependency>
+
+             <dependency>
+                <groupId>org.hibernate</groupId>
+                <artifactId>hibernate-entitymanager</artifactId>
+                 <scope>provided</scope>
+            </dependency>
+
+        <!-- Import the JSF API, we use provided scope as the API is included in
+            JBoss EAP -->
+        <dependency>
+            <groupId>org.jboss.spec.javax.faces</groupId>
+            <artifactId>jboss-jsf-api_2.2_spec</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+	  		<groupId>org.jboss.spec.javax.servlet</groupId>
+	  		<artifactId>jboss-servlet-api_3.1_spec</artifactId>
+			<scope>provided</scope>
+	  	</dependency>
+
+        <!-- Now we declare any tools needed -->
+
+        <!-- We use commons lang to generate random Strings -->
+        <dependency>
+            <groupId>commons-lang</groupId>
+            <artifactId>commons-lang</artifactId>
+            <version>2.6</version>
+        </dependency>
+
+        <!-- Annotation processor to generate the JPA metamodel classes for
+            typesafe criteria queries -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-jpamodelgen</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- Annotation processor that raising compilation errors whenever constraint
+            annotations are incorrectly used. -->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+      <!-- Import the RichFaces core library -->
+
+		 <dependency>
+            <groupId>org.richfaces</groupId>
+            <artifactId>richfaces</artifactId>
+            <version>${org.richfaces.bom.version}</version>
+        </dependency>
+
+        <!-- Import Prettyfaces dependency. This is a UNSUPPORTED component -->
+            <dependency>
+                <groupId>com.ocpsoft</groupId>
+                <artifactId>prettyfaces-jsf2</artifactId>
+                <version>${com.ocpsoft.prettyfaces.version}</version>
+                <scope>compile</scope>
+            </dependency>
+
+<!-- Import BRMS -->
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-compiler</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-api</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.kie</groupId>
+            <artifactId>kie-ci</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.drools</groupId>
+            <artifactId>drools-core</artifactId>
+            <version>${drools.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.redhat.training</groupId>
+            <artifactId>bookstore-domain</artifactId>
+            <version>1.0</version>
+        </dependency>
+
+    </dependencies>
+
+    <build>
+        <finalName>bookstore</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>${version.war.plugin}</version>
+                <extensions>false</extensions>
+                <configuration>
+                    <failOnMissingWebXml>false</failOnMissingWebXml>
+                    <archive>
+                        <manifestEntries>
+                            <Dependencies>com.google.guava,org.slf4j
+                            </Dependencies>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+    <profiles>
+        <profile>
+            <id>h2</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>h2</build.profile.id>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>
+                            profiles/${build.profile.id}
+                        </directory>
+                    </resource>
+                    <resource>
+                        <directory>
+                            src/main/resources
+                        </directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>mysql</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <build.profile.id>mysql</build.profile.id>
+            </properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>
+                            profiles/${build.profile.id}
+                        </directory>
+                    </resource>
+                    <resource>
+                        <directory>
+                            src/main/resources
+                        </directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>h2-clustered</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <maven.war.webxml>profiles/clustered/web.xml</maven.war.webxml>
+                <build.profile.id>h2</build.profile.id>
+        	</properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>
+                            profiles/${build.profile.id}
+                        </directory>
+                    </resource>
+                    <resource>
+                        <directory>
+                            src/main/resources
+                        </directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+        <profile>
+            <id>mysql-clustered</id>
+            <activation>
+                <activeByDefault>false</activeByDefault>
+            </activation>
+            <properties>
+                <maven.war.webxml>profiles/clustered/web.xml</maven.war.webxml>
+                <build.profile.id>mysql</build.profile.id>
+        	</properties>
+            <build>
+                <resources>
+                    <resource>
+                        <directory>
+                            profiles/${build.profile.id}
+                        </directory>
+                    </resource>
+                    <resource>
+                        <directory>
+                            src/main/resources
+                        </directory>
+                    </resource>
+                </resources>
+            </build>
+        </profile>
+    </profiles>
+
+</project>
